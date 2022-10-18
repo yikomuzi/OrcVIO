@@ -7,20 +7,6 @@ CMake Deprecation Warning at CMakeLists.txt:1 (cmake_minimum_required):
   CMake that the project does not need compatibility with older versions.
 
 
--- The C compiler identification is GNU 7.5.0
--- The CXX compiler identification is GNU 7.5.0
--- Detecting C compiler ABI info
--- Detecting C compiler ABI info - done
--- Check for working C compiler: /usr/bin/cc - skipped
--- Detecting C compile features
--- Detecting C compile features - done
--- Detecting CXX compiler ABI info
--- Detecting CXX compiler ABI info - done
--- Check for working CXX compiler: /usr/bin/c++ - skipped
--- Detecting CXX compile features
--- Detecting CXX compile features - done
--- Found OpenCV: /usr (found version "3.2.0") 
--- Found Boost: /usr/include (found version "1.65.1") found components: filesystem system 
 -- Found installed version of Eigen: /usr/lib/cmake/eigen3
 -- Found required Ceres dependency: Eigen version 3.3.4 in /usr/include/eigen3
 -- Found required Ceres dependency: glog
@@ -28,15 +14,6 @@ CMake Deprecation Warning at CMakeLists.txt:1 (cmake_minimum_required):
 -- Detected gflags version: 2.2.1
 -- Found required Ceres dependency: gflags
 -- Found Ceres version: 1.14.0 installed in: /usr/local/ceres-solver with components: [EigenSparse, SparseLinearAlgebraLibrary, LAPACK, SuiteSparse, CXSparse, SchurSpecializations, OpenMP, Multithreading]
--- Looking for pthread.h
--- Looking for pthread.h - found
--- Performing Test CMAKE_HAVE_LIBC_PTHREAD
--- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Failed
--- Looking for pthread_create in pthreads
--- Looking for pthread_create in pthreads - not found
--- Looking for pthread_create in pthread
--- Looking for pthread_create in pthread - found
--- Found Threads: TRUE  
 -- Found AMD headers in: /usr/include/suitesparse
 -- Found AMD library: /usr/lib/x86_64-linux-gnu/libamd.so
 -- Found CAMD headers in: /usr/include/suitesparse
@@ -55,7 +32,6 @@ CMake Deprecation Warning at CMakeLists.txt:1 (cmake_minimum_required):
 -- Found LIBRT library: /usr/lib/x86_64-linux-gnu/librt.so
 -- Adding librt: /usr/lib/x86_64-linux-gnu/librt.so to SuiteSparse_config libraries (required on Linux & Unix [not OSX] if SuiteSparse is compiled with timing).
 -- Found METIS library: /usr/lib/x86_64-linux-gnu/libmetis.so
--- Found SuiteSparse: TRUE (found version "5.1.2") 
 CMake Error at /opt/clion-2022.1.3/bin/cmake/linux/share/cmake-3.22/Modules/FindPackageHandleStandardArgs.cmake:230 (message):
   Could NOT find GTest (missing: GTEST_LIBRARY GTEST_MAIN_LIBRARY)
 Call Stack (most recent call first):
