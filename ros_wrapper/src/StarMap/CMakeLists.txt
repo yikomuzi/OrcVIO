@@ -24,11 +24,11 @@ find_package(catkin_simple REQUIRED)
 find_package(Boost REQUIRED COMPONENTS system program_options filesystem)
 
 ## TODO FIXME do not use the absolute path 
-# set(Torch_DIR /home/erl/Workspace/libtorch/share/cmake/Torch)
+set(Torch_DIR /usr/local/libtorch/share/cmake/Torch)
 find_package(Torch 1.8.2 REQUIRED)
 
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${TORCH_CXX_FLAGS}")
-find_package(OpenCV 4.2 REQUIRED)
+find_package(OpenCV REQUIRED)
 find_package(Eigen3 REQUIRED)
 
 find_package(catkin REQUIRED COMPONENTS

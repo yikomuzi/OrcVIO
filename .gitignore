@@ -14,3 +14,6 @@ ros_wrapper/dependencies/
 ros_wrapper/.tox/ 
 ros_wrapper/src/CMakeLists.txt
 ros_wrapper/.catkin_workspace
+
+/cmake-build-debug/
+.idea

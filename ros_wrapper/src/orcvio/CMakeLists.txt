@@ -74,7 +74,7 @@ add_library(image_processor
 )
 target_link_libraries(image_processor
     ${OpenCV_LIBRARIES}
-    Sophus::Sophus
+#    Sophus::Sophus
 )
 
 # Initializer
@@ -84,7 +84,7 @@ add_library(staticInitializer
 )
 target_link_libraries(staticInitializer
     ${SUITESPARSE_LIBRARIES}
-    Sophus::Sophus
+#    Sophus::Sophus
 )
 # -- Dynamic Initializer
 add_library(dynamicInitializer
@@ -99,7 +99,7 @@ target_link_libraries(dynamicInitializer
     ${SUITESPARSE_LIBRARIES}
     ${CERES_LIBRARIES}
     ${OpenCV_LIBRARIES}
-    Sophus::Sophus
+#    Sophus::Sophus
 )
 # -- Flexible Initializer
 add_library(flexibleInitializer
@@ -108,7 +108,7 @@ add_library(flexibleInitializer
 target_link_libraries(flexibleInitializer
     staticInitializer
     dynamicInitializer
-    Sophus::Sophus
+#    Sophus::Sophus
 )
 
 # Estimator
@@ -119,7 +119,7 @@ target_link_libraries(estimator
     flexibleInitializer
     ${SUITESPARSE_LIBRARIES}
     ${OpenCV_LIBRARIES}
-    Sophus::Sophus
+#    Sophus::Sophus
 )
 
 # System Manger
@@ -135,14 +135,14 @@ add_dependencies(system_manager
 target_link_libraries(system_manager
     image_processor estimator
     ${catkin_LIBRARIES}
-    Sophus::Sophus
+#    Sophus::Sophus
 )
 
 # Object Mapper 
 add_library(object_mapper
-    src/ObjectInitNode.cpp 
-    ${ORCVIO_SRC}/obj/ObjectFeature.cpp 
-    ${ORCVIO_SRC}/obj/ObjectFeatureInitializer.cpp 
+    src/ObjectInitNode.cpp
+    ${ORCVIO_SRC}/obj/ObjectFeature.cpp
+    ${ORCVIO_SRC}/obj/ObjectFeatureInitializer.cpp
     ${ORCVIO_SRC}/obj/ObjectLM.cpp
     ${ORCVIO_SRC}/obj/ObjectLMLite.cpp
     ${ORCVIO_SRC}/obj/ObjectResJacCam.cpp
@@ -155,7 +155,9 @@ add_dependencies(object_mapper
     ${${PROJECT_NAME}_EXPORTED_TARGETS}
     ${catkin_EXPORTED_TARGETS}
 )
-target_link_libraries(object_mapper ${catkin_LIBRARIES} ${OpenCV_LIBRARIES} ${Boost_LIBRARIES} Sophus::Sophus)
+target_link_libraries(object_mapper ${catkin_LIBRARIES} ${OpenCV_LIBRARIES} ${Boost_LIBRARIES}
+#        Sophus::Sophus
+        )
 
 # System Manager nodelet
 add_library(OrcVIO_Nodelets
@@ -170,14 +172,17 @@ target_link_libraries(OrcVIO_Nodelets
     system_manager
     object_mapper
     ${catkin_LIBRARIES}
-    Sophus::Sophus
+#    Sophus::Sophus
 )
 
 if (catkin_FOUND)
-    
+
     # gt path publisher
     add_executable(publish_gt_path src/publish_gt_path.cpp src/gt_odom.cpp)
-    target_link_libraries(publish_gt_path ${catkin_LIBRARIES} Sophus::Sophus)
+    target_link_libraries(publish_gt_path
+            ${catkin_LIBRARIES}
+#            Sophus::Sophus
+            )
 
 endif()
 
