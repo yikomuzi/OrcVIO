@@ -101,40 +101,40 @@ add_library(${PROJECT_NAME}_mapping
 target_link_libraries(${PROJECT_NAME}_mapping
   ${OpenCV_LIBS})
 
-if(BUILD_TESTING)
-
-  find_package(GTest REQUIRED)
-  find_package(PythonLibs 2.7)
-  if(PYTHONLIBS_FOUND AND NOT DISABLE_MATPLOTLIB)
-    add_definitions(-DHAVE_PYTHONLIBS=1)
-    message(STATUS "PYTHON VERSION: " ${PYTHONLIBS_VERSION_STRING})
-    message(STATUS "PYTHON INCLUDE: " ${PYTHON_INCLUDE_DIRS})
-    message(STATUS "PYTHON LIBRARIES: " ${PYTHON_LIBRARIES})
-  endif()
-  include_directories(${PYTHON_INCLUDE_DIRS})
-
-  add_executable(${PROJECT_NAME}_tests
-    src/tests/test_utils.cpp
-    src/tests/test_se3.cpp
-    src/tests/test_kabsch.cpp
-    src/tests/test_state_update.cpp
-    src/tests/test_object_init_multiframe.cpp
-    src/tests/test_levenberg_marquardt.cpp
-    src/tests/test_object_lm.cpp
-    src/tests/test_object_lm_multiframe.cpp)
-
-  target_link_libraries(${PROJECT_NAME}_tests
-    ${PROJECT_NAME}_mapping
-    ${PROJECT_NAME}_estimator
-    ${OpenCV_LIBRARIES} ${Boost_LIBRARIES} ${PYTHON_LIBRARIES} GTest::GTest
-    GTest::Main)
-
-  add_test(
-    ${PROJECT_NAME}_tests
-    WORKING_DIRECTORY ${PROJECT_SOURCE_DIR})
-
-  # for line coverage 
-  # set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} --coverage -fprofile-arcs -ftest-coverage -std=c++11 -g")
-  # add_custom_target(cov COMMAND ${PROJECT_SOURCE_DIR}/build_scripts/generate_coverage_report -r "make")
-
-endif() # BUILD_TESTING
+#if(BUILD_TESTING)
+#
+#  find_package(GTest REQUIRED)
+#  find_package(PythonLibs 2.7)
+#  if(PYTHONLIBS_FOUND AND NOT DISABLE_MATPLOTLIB)
+#    add_definitions(-DHAVE_PYTHONLIBS=1)
+#    message(STATUS "PYTHON VERSION: " ${PYTHONLIBS_VERSION_STRING})
+#    message(STATUS "PYTHON INCLUDE: " ${PYTHON_INCLUDE_DIRS})
+#    message(STATUS "PYTHON LIBRARIES: " ${PYTHON_LIBRARIES})
+#  endif()
+#  include_directories(${PYTHON_INCLUDE_DIRS})
+#
+#  add_executable(${PROJECT_NAME}_tests
+#    src/tests/test_utils.cpp
+#    src/tests/test_se3.cpp
+#    src/tests/test_kabsch.cpp
+#    src/tests/test_state_update.cpp
+#    src/tests/test_object_init_multiframe.cpp
+#    src/tests/test_levenberg_marquardt.cpp
+#    src/tests/test_object_lm.cpp
+#    src/tests/test_object_lm_multiframe.cpp)
+#
+#  target_link_libraries(${PROJECT_NAME}_tests
+#    ${PROJECT_NAME}_mapping
+#    ${PROJECT_NAME}_estimator
+#    ${OpenCV_LIBRARIES} ${Boost_LIBRARIES} ${PYTHON_LIBRARIES} GTest::GTest
+#    GTest::Main)
+#
+#  add_test(
+#    ${PROJECT_NAME}_tests
+#    WORKING_DIRECTORY ${PROJECT_SOURCE_DIR})
+#
+#  # for line coverage
+#  # set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} --coverage -fprofile-arcs -ftest-coverage -std=c++11 -g")
+#  # add_custom_target(cov COMMAND ${PROJECT_SOURCE_DIR}/build_scripts/generate_coverage_report -r "make")
+#
+#endif() # BUILD_TESTING
